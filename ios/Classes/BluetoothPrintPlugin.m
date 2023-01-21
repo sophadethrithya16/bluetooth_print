@@ -60,13 +60,16 @@
                       break;
                   case CBCentralManagerStatePoweredOff:
                       NSLog(@"Bluetooth is currently powered off.");
+                      self.stateID = -1;
                       break;
                   case CBCentralManagerStatePoweredOn:
                       [self startScan];
                       NSLog(@"Bluetooth power on");
+                      self.stateID = -1;
                       break;
                   case CBCentralManagerStateUnknown:
                   default:
+                      self.stateID = -1;
                       break;
               }
           }];
